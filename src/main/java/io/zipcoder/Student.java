@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
-    String firstName;
-    String lastName;
-    ArrayList<Double> examScores = new ArrayList<>();
+    private String firstName;
+    private String lastName;
+    private ArrayList<Double> examScores;
 
     public Student(String firstName, String lastName, Double[] testScores) {
         this.firstName = firstName;
@@ -39,8 +39,8 @@ public class Student {
         examScores.add(examScore);
     }
 
-    public void setExamScore(int examNumber, Double newScore) {
-        examScores.set(examNumber - 1, newScore);
+    public void setExamScore(int examToSet, Double newScore) {
+        examScores.set(examToSet - 1, newScore);
     }
 
     public Double[] getExamScoresArray() {
