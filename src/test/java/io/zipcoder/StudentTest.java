@@ -100,4 +100,18 @@ public class StudentTest {
         Assert.assertEquals(expected2, actual2);
     }
 
+    @Test
+    public void toStringTest() {
+        //Given
+        Double[] examScores = {70.0, 80.0, 90.0};
+        Student newStudent = new Student("Trey", "Anastasio", examScores);
+        String expected = "Student Name: Trey Anastasio\n> Average Score: 80.0\n> Exam Scores: \n  Exam 1 -> 70.0\n  Exam 2 -> 80.0\n  Exam 3 -> 90.0";
+
+        //When
+        String actual = newStudent.toString();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
 }

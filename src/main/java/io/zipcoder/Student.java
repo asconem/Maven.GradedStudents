@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -85,6 +87,7 @@ public class Student {
         output += "> Average Score: " + this.getAverageExamScore() + "\n";
         output += "> " + this.getExamScores();
         return output;
+
     }
 
 
