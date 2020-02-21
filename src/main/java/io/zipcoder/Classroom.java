@@ -1,9 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Classroom {
     private Student[] students;
@@ -71,7 +68,7 @@ public class Classroom {
     }
 
     public Student[] getStudentByScore() {
-        Arrays.sort(students);
+        Arrays.sort(students, Collections.reverseOrder());
         return students;
     }
 
