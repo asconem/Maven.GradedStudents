@@ -12,7 +12,7 @@ public class StudentTest {
         Double[] examScores2 = {};
         Student student1 = new Student("Trey", "Anastasio", examScores1);
         Student student2 = new Student("Trey", "Anastasio", examScores2);
-        String expected1 = "Exam Scores: \n  Exam 1 -> 95.0\n  Exam 2 -> 80.0";
+        String expected1 = "Exam Scores: \n  Exam 1 -> 95.00\n  Exam 2 -> 80.00";
         String expected2 = "Exam Scores: \n";
 
         // When
@@ -103,9 +103,14 @@ public class StudentTest {
     @Test
     public void toStringTest() {
         //Given
-        Double[] examScores = {70.0, 80.0, 90.0};
+        Double[] examScores = {70.0, 80.0, 92.0};
         Student newStudent = new Student("Trey", "Anastasio", examScores);
-        String expected = "Student Name: Trey Anastasio\n> Average Score: 80.0\n> Exam Scores: \n  Exam 1 -> 70.0\n  Exam 2 -> 80.0\n  Exam 3 -> 90.0";
+        String expected = "Student Name: Trey Anastasio\n" +
+                "> Average Score: 80.67\n" +
+                "> Exam Scores: \n" +
+                "  Exam 1 -> 70.0\n" +
+                "  Exam 2 -> 80.0\n" +
+                "  Exam 3 -> 92.0";
 
         //When
         String actual = newStudent.toString();
