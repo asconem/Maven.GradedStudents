@@ -57,12 +57,34 @@ public class Student {
         String scores = "Exam Scores: \n";
         int count = 1;
 
-        for (Double d : examScores) {
-            String examScore = String.format("%1.0f", d);
-            scores += "  Exam  " + count + " -> " + examScore + "\n";
+        for (int d = 0; d < examScores.size(); d++) {
+            String examScore = String.format("%.1f", examScores.get(d));
+            if (d >= examScores.size() - 1) {
+                scores += "  Exam " + count + " -> " + examScore;
+            } else {
+                scores += "  Exam " + count + " -> " + examScore + "\n";
+            }
             count++;
         }
         return scores;
+    }
+
+    public Double getAverageExamScore() {
+        double sum = 0;
+
+        for(double d : examScores) {
+            sum += d;
+        }
+
+        return sum / examScores.size();
+    }
+
+    @Override
+    public String toString() {
+        String output = "Student Name: " + this.firstName + " " + this.lastName + "\n";
+        output += "> Average Score: " + this.getAverageExamScore() + "\n";
+        output += "> " + this.getExamScores();
+        return output;
     }
 
 
