@@ -67,12 +67,38 @@ public class Classroom {
         students = studentList.toArray(students);
     }
 
-    public Student[] getStudentByScore() {
-        Arrays.sort(students, Collections.reverseOrder());
-        return students;
+    public Student[] getStudentsByScore() {
+        Comparator<Student> compareStudent = Comparator.comparing(Student::getAverageExamScore).reversed().thenComparing(Student::getLastName);
+        Student[] sortedStudent = getStudents();
+        Arrays.sort(sortedStudent, compareStudent);
+        return sortedStudent;
     }
 
     public Map<Student, String> getGradeBook() {
-        return null;
+
+        Map<Student, String> gradeBook = new HashMap<>();
+        Student[] sortedGrades = getStudentsByScore();
+        Double percentile;
+        Double classSize = (double) sortedGrades.length;
+
+        for (int i = 0; i < sortedGrades.length; i++){
+            percentile = (((classSize - i) / classSize) * 100.0);
+            if (percentile >= 90){
+                gradeBook.put(sortedGrades[i], "A");
+            }
+            else if(percentile >= 71){
+                gradeBook.put(sortedGrades[i], "B");
+            }
+            else if(percentile >= 50){
+                gradeBook.put(sortedGrades[i], "C");
+            }
+            else if(percentile >= 11){
+                gradeBook.put(sortedGrades[i], "D");
+            }
+            else{
+                gradeBook.put(sortedGrades[i], "F");
+            }
+        }
+        return gradeBook;
     }
 }
