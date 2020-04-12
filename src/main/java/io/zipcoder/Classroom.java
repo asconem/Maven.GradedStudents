@@ -3,7 +3,7 @@ package io.zipcoder;
 import java.util.*;
 
 public class Classroom {
-    private Student[] students;
+    Student[] students;
 
     public Classroom(int maxNumberOfStudents) {
         this.students = new Student[maxNumberOfStudents];
@@ -11,11 +11,6 @@ public class Classroom {
 
     public Classroom(Student[] students){
         this.students = students;
-
-        /*students = new Student[kids.length];
-        for (int i = 0; i < students.length; i++) {
-            students[i] = kids[i];
-        }*/
     }
 
     public Classroom() {
